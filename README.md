@@ -2,6 +2,8 @@
 
 A simple Next.js dashboard for my home media server. 
 
+![screenshot](images/screenshot.png)
+
 ## Build
 
 ```
