@@ -38,7 +38,6 @@ Plex:
 
 ```
 docker run --rm --name home-dashboard -v /var/run/docker.sock:/var/run/docker.sock -v /path/to/dashboard.yaml:/config/dashboard.yaml -p <PORT>:3000 home-dashboard
-# or bash run.sh
 ```
 
 
