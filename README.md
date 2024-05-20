@@ -16,6 +16,8 @@ docker build -t home-dashboard .
 Supply a yaml configuration file named `dashboard.yaml` to configure to the dashboard. E.g.,
 
 ```
+metadata:
+ name: homelab
 Plex:
  name: Plex  <-- name as shown in UI
  url: https://plex.domain.com <-- link
