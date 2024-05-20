@@ -4,6 +4,14 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["dockerode"],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

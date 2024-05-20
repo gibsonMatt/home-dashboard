@@ -16,6 +16,7 @@ RUN \
   fi
 
 
+
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
@@ -45,6 +46,8 @@ COPY --from=builder /app/public ./public
 # Set the correct permission for prerender cache
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
+
+RUN mkdir /config
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing

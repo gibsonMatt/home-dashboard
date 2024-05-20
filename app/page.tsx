@@ -7,12 +7,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+
 import { ServiceStatus } from "./components/status";
-import { servicedata } from "./serviceData";
-var Docker = require('dockerode');
+import { LoadConfig } from "./serviceData";
 
 export const dynamic = "force-dynamic";
+
 export default async function Home() {
+
+  const servicedata = await LoadConfig()
+  console.log(servicedata)
   return (
     <div className="flex flex-wrap gap-6 ml-10 mr-10 mt-10">
       {servicedata.map((item) => {
@@ -27,8 +31,8 @@ export default async function Home() {
                   <CardHeader>
                     <Image
                       src={item.icon}
-                      width={item.width}
-                      height={item.height}
+                      width={50}
+                      height={50}
                       alt=""
                     />
                     <CardTitle>{item.name}</CardTitle>
