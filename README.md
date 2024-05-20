@@ -22,8 +22,16 @@ Plex:
  description: Plex Media Server
  icon: plex.svg <-- image for icon. can also be an https url with valid certificate. 
  containerName: plex <-- exact name of the service in your stack for status indicator icons. 
+Nginx:
+ name: Nginx
+ url: <URL>
+ description: Nginx Proxy
+ icon: https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg
+ container-name: Nginx-Proxy-Manager-Official
+ width: 80 <-- Optionally specify icon width
+ height: 80 <-- Optionally specify icon height
 
-...more services
+...more
 ```
 
 > `dashboard.yaml` is parsed at runtime. It is not required to build the image. 
