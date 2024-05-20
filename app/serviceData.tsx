@@ -6,7 +6,9 @@ type Service = {
     desc: string,
     icon: string,
     containerName?: string,
-    status?: string
+    status?: string,
+    width?: number,
+    height?: number
 }
 
 import fs from 'fs'
@@ -18,21 +20,36 @@ export async function LoadConfig() {
 
     let config: any = {}
     try {
-        const file = fs.readFileSync('/config/dashboard.yaml', 'utf8')
-        config = YAML.parse(file)
+        const env = process.env.NODE_ENV
+        if (env == "development") {
+            const file = fs.readFileSync(process.env.CONFIG_PATH_DEV as string, 'utf8')
+            config = YAML.parse(file)
+
+        } else {
+            const file = fs.readFileSync('/config/dashboard.yaml', 'utf8')
+            config = YAML.parse(file)
+
+        }
+        console.log("Loaded config")
+
     } catch {
         console.log("Cannot load config")
     }
 
+    let metadata: any = {}
 
     let servicedata: Service[] = []
     for (const key in config) {
         const entry: Service = config[key]
-
-        servicedata.push(entry)
+        if (key != "metadata"){
+            servicedata.push(entry)
+        } else {
+            metadata = entry
+        }
     }
 
-    return servicedata
+    const response: any = {services: servicedata, metadata: metadata}
+    return response
 }
 
 
