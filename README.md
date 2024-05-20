@@ -39,9 +39,13 @@ Plex:
 
 
 ```
-docker run --rm --name home-dashboard -v /var/run/docker.sock:/var/run/docker.sock -v /path/to/dashboard.yaml:/config/dashboard.yaml -p <PORT>:3000 home-dashboard
+docker run --rm --name home-dashboard \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /path/to/dashboard.yaml:/config/dashboard.yaml \
+  -p <PORT>:3000 home-dashboard
 ```
 
+The server runs on port 3000 by default.
 
 
 ## Run dev server
